@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+    font-family: "Nunito", sans-serif;
 }
 
 nav {
@@ -100,11 +100,10 @@ nav {
 
 .nav__link--anchor-primary:hover {
     background-color: rgb(185, 6, 6);
-    transform: scale(2);
 }
 
 .click:hover {
-    transform: scale(2);
+    transform: scale(1.1);
 }
 
 .click:active {
@@ -165,7 +164,7 @@ input {
     padding: 20px 192px 20px 32px;
     border-radius: 20px;
     border-color: rgba(225, 25, 25, 0.65);
-    box-shadow:  0 20px 80px 0 rgb(0, 0, 0, 0.5);;
+    box-shadow:  0 20px 80px 0 rgb(0, 0, 0, 0.5);
 }
 
 input:focus {
@@ -190,7 +189,7 @@ input[type="text"] {
     cursor: pointer;
     transition: all 300ms ease;
     color: white;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .fa-search:hover {

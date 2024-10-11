@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+    font-family: "Nunito", sans-serif;
 }
 
 .banner__area {
@@ -18,9 +18,20 @@
     height: 100%;
 }
 
-
 .banner__area:after {
     opacity: .7;
+}
+
+.click:hover {
+    transform: scale(1.1);
+}
+
+.click:active {
+    transform: scale(0.8);
+}
+
+.click {
+    transition: all 300ms ease;
 }
 
 nav {
@@ -39,7 +50,7 @@ nav {
 
 .row {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 0 12px;
 }
@@ -120,7 +131,7 @@ Header Section
     font-size: 60px;
     margin-bottom: 60px;
     color: #fff;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .input__wrapper {
@@ -135,7 +146,8 @@ input {
     height: 70px;
     padding: 20px 192px 20px 32px;
     border-radius: 20px;
-    border-color: rgb(0, 0, 0, 0.7);
+    border-color: rgba(104, 104, 235, 0.65);
+    box-shadow:  0 20px 80px 0 rgb(0, 0, 0, 0.5);
 }
 
 .fa-search {
@@ -149,8 +161,8 @@ input {
     color: #242424;
     font-size: 30px;
     position: absolute;
-    top: 345px;
-    right: 700px;
+    top: 360px;
+    right: 690px;
     border-radius: 50px;
     width: 70px;
     height: 50px;
@@ -162,12 +174,8 @@ input {
 }
 
 input:focus {
-    outline: 1px solid rgb(225, 25, 25);
+    outline: 1px solid rgb(68, 68, 189);
     transition: all 300ms ease;
-}
-
-input:hover {
-    border-color: rgb(185, 6, 6);
 }
 
 input[type="text"] {
@@ -183,17 +191,32 @@ Results Section
 .results__sub-title {
     font-size: 32px;
     margin-bottom: 40px;
+    color: #fff;
+}
+
+.pokemon__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .pokemon__card {
+    max-width: 300px;
+    height: 300px;
     background-color: #fff;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
-    margin: 10px;
+    margin: 18px;
     transition: 0.3s;
     cursor: pointer;
     width: calc(100%/3);
     border-radius: 10px;
     background-color: lavender;
+    transition: all 200ms ease;
+}
+
+.pokemon__card:hover {
+    transform: scale(1.05);
 }
 
 .pokemon__card--container {
@@ -205,4 +228,14 @@ Results Section
 
 .pokedex__background {
     background-image: url(assets/Pokedex_Background.webp);
+}
+
+.pokemon__img {
+    width: 100%;
+    width: 200px;
+    height: 200px;
+}
+
+.pokemon__name {
+    font-size: 32px;
 }
