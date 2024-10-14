@@ -199,6 +199,7 @@ Results Section
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    
 }
 
 .pokemon__card {
@@ -213,6 +214,11 @@ Results Section
     border-radius: 10px;
     background-color: lavender;
     transition: all 200ms ease;
+    z-index: -1;
+}
+
+.show__pokemon--card {
+    z-index: 1;
 }
 
 .pokemon__card:hover {

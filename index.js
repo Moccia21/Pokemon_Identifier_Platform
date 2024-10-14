@@ -1,7 +1,8 @@
 async function fetchPokemon() {
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=999");
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=999") 
     const pokemonData = await response.json();
     console.log(pokemonData)
+
     const pokemonListEl = document.querySelector(".pokemon__list");
     pokemonListEl.innerHTML = pokemonData.results.map((poke, index) => {
         const pokemonId = index + 1;
@@ -14,14 +15,47 @@ async function fetchPokemon() {
         </div>`;
     })
     .join("");
-}
+     }
 
+    document.getElementById('search__button').addEventListener('click', function() {
+    const pokemonName = document.getElementById('search__input').value.toLowerCase();
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`) 
+    .then (response => {
+        if (!response.ok) {
+            throw new Error('Pokémon not found');
+        }
+        console.log(response);
+        return response.json();
+    })
+
+    .then(pokemonData => {
+        document.getElementById('pokemonName').innerText = `${capitalize(pokemonData.name)}`;
+        document.getElementById('pokemonId').innerText = `Pokédex: #${pokemonData.id}`;
+        document.getElementById('pokemonTypes').innerText = `Type(s): ${pokemonData.types.map(typeInfo => capitalize(typeInfo.type.name))}`;
+        document.getElementById('pokemonImage').src = pokemonData.sprites.front_default;
+        document.getElementById('pokemonImage').style.display = 'block';
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        document.getElementById('pokemonName').innerText = 'Pokémon Not Found!';
+        document.getElementById('pokemonId').innerText = '';
+        document.getElementById('pokemonImage').src ="./assets/ImageNotFound.png"
+    });
+});
+        
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-function firstSixElements(str) {
+function firstSixElements() {
     return str.slice(0, 6);
 }
 
-fetchPokemon();
+let hasOverlayShown = false;
+function togglePokemonCard() {
+    if (!hasOverlayShown){
+        const overlay = document.getElementById('overlay');
+        overlay.classList.toggle('show__pokemon--card')
+        hasOverlayShown = true;
+    }
+}
