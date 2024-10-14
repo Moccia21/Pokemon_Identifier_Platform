@@ -160,7 +160,6 @@ input {
     transition: all 400ms ease;
     color: #242424;
     font-size: 30px;
-    position: absolute;
     top: 360px;
     right: 690px;
     border-radius: 50px;

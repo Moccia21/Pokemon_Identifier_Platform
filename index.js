@@ -1,3 +1,4 @@
+// Side function that calls all the pokemon from the api and displays it to the user
 async function fetchPokemon() {
     const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=999") 
     const pokemonData = await response.json();
@@ -17,7 +18,22 @@ async function fetchPokemon() {
     .join("");
      }
 
+     // Adds an event listener for the Enter key
+     document.getElementById('search__input').addEventListener('keydown', function(event) {
+         if (event.key === "Enter") {
+             event.preventDefault();
+             searchPokemon();
+            }
+        })
+        
+    // Adds an event listener for the search button
     document.getElementById('search__button').addEventListener('click', function() {
+        searchPokemon();
+    })
+
+
+    // Main function that calls the api and portrays it to the user
+    function searchPokemon() {
     const pokemonName = document.getElementById('search__input').value.toLowerCase();
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`) 
     .then (response => {
@@ -41,8 +57,9 @@ async function fetchPokemon() {
         document.getElementById('pokemonId').innerText = '';
         document.getElementById('pokemonImage').src ="./assets/ImageNotFound.png"
     });
-});
-        
+    
+}
+
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
@@ -51,6 +68,7 @@ function firstSixElements() {
     return str.slice(0, 6);
 }
 
+// Shows the overlay once first pokemon is searched
 let hasOverlayShown = false;
 function togglePokemonCard() {
     if (!hasOverlayShown){
