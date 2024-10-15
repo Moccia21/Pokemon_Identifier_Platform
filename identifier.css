@@ -19,7 +19,7 @@
 }
 
 .banner__area:after {
-    opacity: .7;
+    opacity: 0.7;
 }
 
 .click:hover {
@@ -125,6 +125,9 @@ Header Section
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    animation: fade 1700ms ease;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 .title {
@@ -138,20 +141,21 @@ Header Section
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    gap: 12px;
 }
 
 input {
-    width: 100%;
     width: 550px;
     height: 70px;
+    margin: 80px 0px;
     padding: 20px 192px 20px 32px;
     border-radius: 20px;
     border-color: rgba(104, 104, 235, 0.65);
     box-shadow:  0 20px 80px 0 rgb(0, 0, 0, 0.5);
 }
 
-.fa-search {
-    margin-left: 12px;
+.search__container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -159,17 +163,18 @@ input {
     cursor: pointer;
     transition: all 400ms ease;
     color: #242424;
-    font-size: 30px;
-    top: 360px;
-    right: 690px;
     border-radius: 50px;
-    width: 70px;
-    height: 50px;
+    height: 70px;
     background-color: rgb(104, 104, 235);
+    aspect-ratio: 1/1;
 }
 
 .fa-search:hover {
     color: #f5f5f5;
+}
+
+.fa-search {
+    font-size: 30px;
 }
 
 input:focus {
@@ -181,6 +186,15 @@ input[type="text"] {
     font-size: 24px;
 }
 
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 /* 
 
 Results Section
@@ -190,7 +204,10 @@ Results Section
 .results__sub-title {
     font-size: 32px;
     margin-bottom: 40px;
-    color: #fff;
+    color: #f5f5f5;
+    animation: fade 1700ms ease;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 .pokemon__list {
@@ -243,4 +260,46 @@ Results Section
 
 .pokemon__name {
     font-size: 32px;
+}
+
+/* 
+
+Responsive Section
+
+*/
+
+@media (max-width: 900px) {
+    .nav__link--anchor-secondary {
+        display: none;
+    }
+
+    .title {
+        font-size: 40px;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .title {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 650px) {
+    .title {
+        display: none;
+    }
+
+    .nav__link--anchor {
+        display: none;
+    }
+
+    .input__wrapper {
+        flex-direction: column;
+    }
+
+    #search__input {
+        width: 430px;
+        margin-bottom: 20px;
+    }
 }

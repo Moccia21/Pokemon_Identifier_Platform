@@ -22,7 +22,7 @@
                         <a href="#" class="nav__link--anchor link__hover-effect">Home</a>
                     </li>
                     <li>
-                        <a href="identifier.html" class="nav__link--anchor-secondary link__hover-effect">Identify your Pokémon</a>
+                        <a href="./identifier.html" class="nav__link--anchor-secondary link__hover-effect">Identify your Pokémon</a>
                     </li>
                     <li>
                         <a href="#" class="nav__link--anchor-primary click">Contact</a>
@@ -31,14 +31,16 @@
             </nav>
             <header>
                 <div class="header__content">
-                    <h1 class="title">
-                        #1 Best Pokémon Identifier Platform
-                    </h1>
-                    <h2 class="subtitle">
-                        Search Your Favorite Pokémon
-                    </h2>
+                    <div class="main__title">
+                        <h1 class="title">
+                            #1 Best Pokémon Identifier Platform
+                        </h1>
+                        <h2 class="subtitle">
+                            Search Your Favorite Pokémon
+                        </h2>
+                    </div>
                     <div class="input__wrapper">
-                        <input type="text" placeholder="Name of Pokémon" onclick="">
+                        <input id="search__input" type="text" placeholder="Name of Pokémon" onclick="">
                         <div class="search__container"> 
                         <i id="search__button" onclick="togglePokemonCard()" class="fa fa-search click"></i>
                         </div>
@@ -50,6 +52,34 @@
             </header>
         </div>
     </section>
-    <script src="index.js"></script>
+
+    <footer>
+        <div class="container">
+            <div class="footer__row">
+              <div class="footer__social--list">
+                <a
+                  href="#"
+                  class="footer__social--link link__hover-effect link__hover-effect--white"
+                >
+                  About
+                </a>
+                <a
+                  href="#" onclick="toggleModal()"
+                  class="footer__social--link link__hover-effect link__hover-effect--white"
+                >
+                  Contact
+                </a>
+                <a
+                  href="./identifier.html"
+                  class="footer__social--link-primary link__hover-effect link__hover-effect--white"
+                >
+                  Identify
+                </a>
+              </div>
+              <div class="footer__copyright">Copyright © 2024 Jake Moccia</div>
+            </div>
+          </div>
+    </footer>
+    <script src="./index.js"></script>
 </body>
 </html>
